@@ -9,15 +9,15 @@ echo "Project,Name,Description,Master Version,Node Version,Node Count,Machine Ty
 for project_id in $(gcloud projects list --format="value(projectId)" | sort)
 do
   cluster_data=$(gcloud container clusters list --format="csv[no-heading](name,\
-                                                                         description,\
-                                                                         currentMasterVersion,\
-                                                                         currentNodeVersion,\
-                                                                         currentNodeCount,\
-                                                                         nodeConfig.machineType,\
-                                                                         createTime,\
-                                                                         clusterIpv4Cidr,\
-                                                                         servicesIpv4Cidr,\
-                   status)" --project="$project_id")
+                                                                          description,\
+                                                                          currentMasterVersion,\
+                                                                          currentNodeVersion,\
+                                                                          currentNodeCount,\
+                                                                          nodeConfig.machineType,\
+                                                                          createTime,\
+                                                                          clusterIpv4Cidr,\
+                                                                          servicesIpv4Cidr,\
+                                                                          status)" --project="$project_id")
 
   if [ -n "$cluster_data" ]; then
     echo "$project_id","$cluster_data" >> "$output_file"
