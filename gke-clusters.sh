@@ -17,7 +17,7 @@ do
                                                                          createTime,\
                                                                          clusterIpv4Cidr,\
                                                                          servicesIpv4Cidr,\
-									 status)" --project="$project_id")
+                   status)" --project="$project_id")
 
   if [ -n "$cluster_data" ]; then
     echo "$project_id","$cluster_data" >> "$output_file"
