@@ -20,7 +20,7 @@ do
                                                                          servicesIpv4Cidr,\
 									 status)" --project="$project_id")
 
-  if [ ! -z "$cluster_data" ]; then
+  if [ -n "$cluster_data" ]; then
     echo "$project_id","$cluster_data" >> "$output_file"
   fi
 done
